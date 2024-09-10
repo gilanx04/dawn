@@ -50,11 +50,14 @@ def get_total_points(headers):
                 return total_points
             else:
                 print(f"\033[91mError fetching points: {json_response.get('message', 'Unknown error')}\033[0m")
+        elif response.status_code == 403:
+            print(f"\033[91mFailed to retrieve points. Status code: {response.status_code} - Forbidden. Token might be invalid or expired.\033[0m")  # Red
         else:
             print(f"\033[91mFailed to retrieve points. Status code: {response.status_code}\033[0m")  # Red
     except requests.exceptions.RequestException as e:
         print(f"\033[91mAn error occurred while fetching points: {e}\033[0m")
     return 0
+
 
 def make_request(headers, email):
     keepalive_payload = {
@@ -76,6 +79,9 @@ def make_request(headers, email):
             else:
                 print("\033[91mMessage not found in response.\033[0m")
         
+        elif response.status_code == 403:
+            print(f"\033[93m403 Forbidden. Token might be invalid or expired for {email}. Skipping...\033[0m")
+
         elif response.status_code == 502:
             print("\033[93m502 Bad Gateway. gpp nanti bisa, lanjut aja ke akun berikutnya...\033[0m")
 
