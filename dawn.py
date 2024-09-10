@@ -80,7 +80,7 @@ def make_request(headers, email):
                 print("\033[91mMessage not found in response.\033[0m")
         
         elif response.status_code == 403:
-            print(f"\033[93m403 Forbidden. Token might be invalid or expired for {email}. Skipping...\033[0m")
+            print(f"\033[93m403 Forbidden. Email might be invalid for {email}. Skipping...\033[0m")
 
         elif response.status_code == 502:
             print("\033[93m502 Bad Gateway. gpp nanti bisa, lanjut aja ke akun berikutnya...\033[0m")
