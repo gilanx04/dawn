@@ -8,3 +8,5 @@ or
 python3 dawn.py
 
 use my refferal code: doavda
+
+extension: https://chromewebstore.google.com/detail/dawn-validator-chrome-ext/fpdkjdnhkakefebpekbdhillbhonfjjp?hl=en
